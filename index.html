@@ -57,5 +57,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </ul>
     <h2>Education</h2>
             <p><strong>Bachelor of Science in Human</strong><br>University of California, San Diego</p>
+    <h3>Certifications</h3>
+    <p>Google Analytics, Google Skillshop – December 2025</p>
+
+    <h1>Contact Me!</h1>
+    <form id="contactForm" name="contactForm" action="/thank_you.html" method="post">
+        <label for="fname">First Name:</label>
+        <input required type="text" id="fname" name="fname"><br>
+        <label for="lname">Last Name:</label>
+        <input required type="text" id="lname" name="lname"><br>
+        <label for="email">Email Address:</label>
+        <input required type="email" id="email" name="email" placeholder="example@email.com"><br>
+        <label for="phone">Phone Number:</label>
+        <input required type="tel" id="tel" name="tel" placeholder="555-555-5555"
+        min="12"
+        max="13"><br><br>
+
+        <!--Industry Selection -->
+        <p>Please Select your Industry!</p>
+        <input type="radio" id="biotech" name="industry" value="bioTech">
+        <label for="biotech">Biotech</label><br>
+        <input type="radio" id="healthTech" name="industry" value="healthTech">
+        <label for="biotech">Health Tech</label><br>
+        <input type="radio" id="tech" name="industry" value="tech">
+        <label for="biotech">Tech</label><br><br>
+
+        <button type="submit" id="submit">Submit</button>
+    </form>
+    <script src="script.js"></script>
+
+    <a href="/Assets/2026.TranResume.T.pdf" download="TranResume">
+        <button>Download Resume</button>
+    </a>
 </body>
 </html>
