@@ -9,13 +9,16 @@ function getData(form) {
     let dataObj = Object.fromEntries(formData);
     let uuid = self.crypto.randomUUID();
     dataObj.custId = uuid;
-    console.log(dataObj);
+    return dataObj;
 }
 
-//Ensures dataLayer exists
-window.dataLayer = window.dataLayer || [];
+//Add eventListener for form submittal and prevent default of page reload
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+getData(e.target);
 
-//Push to GTM
+//Ensures dataLayer exists and push to GTM
+window.dataLayer = window.dataLayer || [];
 dataLayer.push({
     event : 'contact_form_submit',
     formData: dataObj
@@ -24,11 +27,5 @@ dataLayer.push({
 setTimeout(() => {
     form.submit();
 }, 300);
-
-
-//Add eventListener for form submittal and prevent default of page reload
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-getData(e.target);
 
 });
