@@ -25,8 +25,6 @@ dataLayer.push({
     formData: dataObj
 });
 
-setTimeout(() => {
-    form.submit();
-}, 300);
-
+form.style.display = 'none';
+document.getElementById('thankYouMsg').style.display = 'block';
 });
