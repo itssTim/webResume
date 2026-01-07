@@ -21,6 +21,11 @@ dataLayer.push({
     formData: dataObj
 });
 
+setTimeout(() => {
+    form.submit();
+}, 300);
+
+
 //Add eventListener for form submittal and prevent default of page reload
 document.getElementById("contactForm").addEventListener("submit", function(e) {
     e.preventDefault();
