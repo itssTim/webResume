@@ -1,6 +1,6 @@
 //create function to create an object and get form data
 function getData(form) {
-    let formData = new FormData(form);
+    const formData = new FormData(form);
 
     /* for loop that was used to pair the id/property with the actual entry
     for (var pair of formData.entries()) {
@@ -12,11 +12,18 @@ function getData(form) {
     console.log(dataObj);
 }
 
+//Ensures dataLayer exists
+window.dataLayer = window.dataLayer || [];
+
+//Push to GTM
+dataLayer.push({
+    event : 'contact_form_submit',
+    formData: dataObj
+});
+
 //Add eventListener for form submittal and prevent default of page reload
 document.getElementById("contactForm").addEventListener("submit", function(e) {
     e.preventDefault();
 getData(e.target);
 
 });
-
-addEventListener("")
