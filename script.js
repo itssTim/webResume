@@ -30,7 +30,8 @@ fetch('https://script.google.com/macros/s/AKfycbxdk3AyzrlnEqyQwTeRgv2tbMt90DHuNv
     method: 'POST',
     mode: 'no-cors',
     body: JSON.stringify(dataObj),
-    headers:{'Content-Type': 'application/json'}
+    headers:{'Content-Type': 'application/json'},
+    body: JSON.stringify(dataObj)
 });
 
 form.style.display = 'none';
