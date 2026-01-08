@@ -1,38 +1,14 @@
-#thankYouOverlay {
-  position: fixed;       /* stays on top of everything */
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.75); /* semi-transparent black */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;  
-}
-
-/* Hidden state */
-.hidden {
-  display: none;
-}
-
-/* Overlay content box */
-.overlay-content {
-  background: #fff;
-  padding: 2rem 2.5rem;
-  border-radius: 8px;
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
-
-.overlay-content h2 {
-  margin-top: 0;
-}
-
-.overlay-content button {
-  margin-top: 1.5rem;
-  padding: 0.6rem 1.2rem;
-  cursor: pointer;
+#thankyouMsg {
+    display: none;             /* hidden by default */
+    position: fixed;           /* stay in viewport */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    text-align: center;
+    z-index: 9999;             /* on top of everything */
+    font-size: 1.2rem
 }
