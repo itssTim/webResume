@@ -26,13 +26,14 @@ dataLayer.push({
 });
 
 //Push to Google Sheets
-fetch('https://script.google.com/macros/s/AKfycbxdk3AyzrlnEqyQwTeRgv2tbMt90DHuNvtmGwv-ww6XIxTyFYnXH4ZPJ8J3YO6QjQr0/exec', {
-    method: 'POST',
-    mode: 'no-cors',
-    body: JSON.stringify(dataObj),
-    headers:{'Content-Type': 'application/json'}
-});
+const params = new URLSearchParams(dataObj).toString();
+fetch(`https://script.google.com/macros/s/AKfycbxdk3AyzrlnEqyQwTeRgv2tbMt90DHuNvtmGwv-ww6XIxTyFYnXH4ZPJ8J3YO6QjQr0/exec?${params}`);
 
-form.style.display = 'none';
-document.getElementById('thankYouMsg').style.display = 'block';
+//Thank you message overlay
+document.getElementById('thankYouOverlay').classList.remove('hidden');
+
+//Close button
+document.getElementById('closeOverlay').addEventListener('click', () => {
+    document.getElementById('thankYouOverlay').classList.add('hidden');
+})
 });
