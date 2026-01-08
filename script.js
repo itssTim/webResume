@@ -11,8 +11,16 @@ function getData(form) {
     return dataObj;
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    const overlay = document.getElementById('thankYouOverlay');
+    const closeBtn = document.getElementById('closeOverlay');
+    const contactForm = document.getElementById('contactForm');
+
+    console.log('Page loaded and script ready');
+
+
 //Add eventListener for form submittal and prevent default of page reload
-document.getElementById("contactForm").addEventListener("submit", function(e) {
+contactForm.addEventListener("submit", function(e) {
     e.preventDefault();
 
 const form = e.target;
@@ -29,11 +37,16 @@ dataLayer.push({
 const params = new URLSearchParams(dataObj).toString();
 fetch(`https://script.google.com/macros/s/AKfycbxdk3AyzrlnEqyQwTeRgv2tbMt90DHuNvtmGwv-ww6XIxTyFYnXH4ZPJ8J3YO6QjQr0/exec?${params}`);
 
-//Thank you message overlay
-document.getElementById('thankYouOverlay').classList.remove('hidden');
+overlay.classList.remove('hidden');
+});
 
-//Close button
-document.getElementById('closeOverlay').addEventListener('click', () => {
-    document.getElementById('thankYouOverlay').classList.add('hidden');
+closeBtn.addEventListener('click', () => {
+    overlay.classList.add('hidden');
+});
+
+overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+        overlay.classList.add('hidden');
+    }
 })
 });
