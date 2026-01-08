@@ -25,13 +25,16 @@ dataLayer.push({
     formData: dataObj
 });
 
+//Convert object to string for fetch
+const searchParams = new URLSearchParams(dataObj);
+
 //Push to Google Sheets
 fetch('https://script.google.com/macros/s/AKfycbxdk3AyzrlnEqyQwTeRgv2tbMt90DHuNvtmGwv-ww6XIxTyFYnXH4ZPJ8J3YO6QjQr0/exec', {
     method: 'POST',
     mode: 'no-cors',
-    body: JSON.stringify(dataObj),
-    headers:{'Content-Type': 'application/json'},
-    body: JSON.stringify(dataObj)
+    cache: 'no-cache',
+    headers:{'Content-Type': 'application/x-www-form-urlencoded'},
+    body: searchParams.toString()
 });
 
 form.style.display = 'none';
