@@ -25,6 +25,13 @@ dataLayer.push({
     formData: dataObj
 });
 
+//Push to Google Sheets
+fetch('https://script.google.com/macros/s/AKfycbxdk3AyzrlnEqyQwTeRgv2tbMt90DHuNvtmGwv-ww6XIxTyFYnXH4ZPJ8J3YO6QjQr0/exec', {
+    method: 'POST',
+    body: JSON.stringify,
+    headers:{'Content-Type': 'application/json'}
+});
+
 form.style.display = 'none';
 document.getElementById('thankYouMsg').style.display = 'block';
 });
