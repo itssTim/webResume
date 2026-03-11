@@ -52,7 +52,7 @@ h1::after {
 body > a:first-of-type {
   display: block;
   width: fit-content;
-  margin-left: 540px;
+  margin-left: 525px;
   font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.12em;
@@ -89,43 +89,6 @@ h3 {
   margin-top: 1.8rem;
   margin-bottom: 0.6rem;
 }
-
-/* ── Skills intro paragraphs ── */
-.skills-intro {
-  font-size: 0.88rem;
-  color: #3a3632;
-  margin-top: 0.8rem;
-  line-height: 1.6;
-}
-
-/* ── Skills table ── */
-.skills-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1rem;
-  font-size: 0.88rem;
-}
-
-.skills-table td {
-  padding: 0.55rem 0.8rem;
-  vertical-align: top;
-  border-bottom: 1px solid var(--rule);
-}
-
-.skills-table tr:last-child td { border-bottom: none; }
-
-.skills-table td:first-child {
-  white-space: nowrap;
-  width: 130px;
-  color: var(--ink);
-  font-weight: 500;
-}
-
-.skills-table td:last-child { color: #3a3632; }
-
-.skills-table tr:nth-child(odd) td { background: var(--white); }
-.skills-table tr:nth-child(even) td { background: var(--accent-lt); }
-
 
 /* ── Core Competencies list ── */
 h2 + ul {
@@ -216,9 +179,16 @@ h2 + p {
   line-height: 1.55;
 }
 
-/* ── Certification table ── */
-h3 + .skills-table {
-  margin-top: 0.6rem;
+/* ── Certification ── */
+h3 + p {
+  font-size: 0.88rem;
+  color: var(--muted);
+  background: var(--accent-lt);
+  display: block;
+  width: fit-content;
+  margin-left: 525px;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius);
 }
 
 /* ── Contact section ── */
