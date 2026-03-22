@@ -126,6 +126,16 @@ h3 {
 .skills-table tr:nth-child(odd) td { background: var(--white); }
 .skills-table tr:nth-child(even) td { background: var(--accent-lt); }
 
+/* ── Professional Description ── */
+.professional-description {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #3a3632;
+  border-left: 3px solid var(--rule);
+  padding-left: 1rem;
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+}
 
 /* ── Core Competencies list ── */
 h2 + ul {
@@ -149,6 +159,40 @@ h2 + ul li strong {
   font-weight: 500;
   color: var(--ink);
   margin-bottom: 0.15rem;
+}
+
+/* ── Projects ── */
+.project-card {
+    background: var(--white);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 1rem 1.2rem;
+    margin-top: 1rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.6rem;
+}
+
+.project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.project-stack {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-transform: uppercase;
 }
 
 /* ── Work Experience blocks ── */
