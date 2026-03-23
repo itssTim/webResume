@@ -29,7 +29,7 @@ dataLayer.push({
 const params = new URLSearchParams(dataObj).toString();
 
 //Push to Google Sheets
-fetch('https://script.google.com/macros/s/AKfycbxdk3AyzrlnEqyQwTeRgv2tbMt90DHuNvtmGwv-ww6XIxTyFYnXH4ZPJ8J3YO6QjQr0/exec', {
+fetch('https://script.google.com/macros/s/AKfycbwRsmVRC7vhVYGN4POa6YpXjkBBPNcLDDRQ8EYGZX6FmWl6Nf2xvR4txdOwrmPSniwX/exec', {
     method: 'POST',
     mode: 'no-cors',
     headers:{'Content-Type': 'application/x-www-form-urlencoded'},
@@ -38,4 +38,11 @@ fetch('https://script.google.com/macros/s/AKfycbxdk3AyzrlnEqyQwTeRgv2tbMt90DHuNv
 
 form.style.display = 'none';
 document.getElementById('thankYouMsg').style.display = 'block';
+});
+
+//Add eventListener for resume download and prevent default of page reload
+document.getElementById("resumeBtn").addEventListener("click", function(e) {
+   window.dataLayer.push({
+    event: 'resume_download'
+   });
 });
