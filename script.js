@@ -40,9 +40,13 @@ form.style.display = 'none';
 document.getElementById('thankYouMsg').style.display = 'block';
 });
 
+/*
 //Add eventListener for resume download and prevent default of page reload
+// Custom resume download event — refactored to use GTM native file_download
+// Retained as reference for dataLayer push implementation
 document.getElementById("resumeBtn").addEventListener("click", function(e) {
    window.dataLayer.push({
     event: 'resume_download'
    });
 });
+*/
