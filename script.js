@@ -36,7 +36,25 @@ fetch('https://script.google.com/macros/s/AKfycbwRsmVRC7vhVYGN4POa6YpXjkBBPNcLDD
     body: params
 });
 
+//Segment Tracking
+document.querySelectorAll('a[data-project]').forEach(link => {
+    link.addEventListener('click', function() {
+        analytics.track('project_link_clicked', {
+            project_name: this.dataset.project,
+            url: this.href
+        });
+    });
+});
+
 analytics.track("contact_form_submit", dataObj);
+
+document.querySelector('#resumeBtn').addEventListener('click', function() {
+    analytics.track('resume_pdf_downloaded', {
+        file_name: this.href
+    });
+});
+
+//End Segment Tracking
 
 form.style.display = 'none';
 document.getElementById('thankYouMsg').style.display = 'block';
