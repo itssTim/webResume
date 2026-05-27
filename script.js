@@ -9,7 +9,24 @@ function getData(form) {
     let dataObj = Object.fromEntries(formData);
     dataObj.custId = crypto.randomUUID();
     return dataObj;
-}
+};
+
+//Segment Tracking
+document.querySelectorAll('a[data-project]').forEach(link => {
+    link.addEventListener('click', function() {
+        analytics.track('project_link_clicked', {
+            project_name: this.dataset.project,
+            url: this.href
+        });
+    });
+});
+
+document.querySelector('#resumeBtn').addEventListener('click', function() {
+    analytics.track('resume_pdf_downloaded', {
+        file_name: this.href
+    });
+});
+//End Segment Tracking
 
 //Add eventListener for form submittal and prevent default of page reload
 document.getElementById("contactForm").addEventListener("submit", function(e) {
@@ -28,6 +45,9 @@ dataLayer.push({
 //Convert object to string for fetch
 const params = new URLSearchParams(dataObj).toString();
 
+//Push to Segment
+analytics.track("contact_form_submit", dataObj);
+
 //Push to Google Sheets
 fetch('https://script.google.com/macros/s/AKfycbwRsmVRC7vhVYGN4POa6YpXjkBBPNcLDDRQ8EYGZX6FmWl6Nf2xvR4txdOwrmPSniwX/exec', {
     method: 'POST',
@@ -36,29 +56,10 @@ fetch('https://script.google.com/macros/s/AKfycbwRsmVRC7vhVYGN4POa6YpXjkBBPNcLDD
     body: params
 });
 
-//Segment Tracking
-document.querySelectorAll('a[data-project]').forEach(link => {
-    link.addEventListener('click', function() {
-        analytics.track('project_link_clicked', {
-            project_name: this.dataset.project,
-            url: this.href
-        });
-    });
-});
-
-analytics.track("contact_form_submit", dataObj);
-
-document.querySelector('#resumeBtn').addEventListener('click', function() {
-    analytics.track('resume_pdf_downloaded', {
-        file_name: this.href
-    });
-});
-
-//End Segment Tracking
-
 form.style.display = 'none';
 document.getElementById('thankYouMsg').style.display = 'block';
 });
+
 
 /*
 //Add eventListener for resume download and prevent default of page reload
