@@ -36,6 +36,8 @@ fetch('https://script.google.com/macros/s/AKfycbwRsmVRC7vhVYGN4POa6YpXjkBBPNcLDD
     body: params
 });
 
+analytics.track("contact_form_submit", dataObj);
+
 form.style.display = 'none';
 document.getElementById('thankYouMsg').style.display = 'block';
 });
