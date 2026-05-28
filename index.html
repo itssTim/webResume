@@ -63,12 +63,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="project-card">
         <div class="project-header">
             <span class="project-title">Personal Resume <a href='https://itsstim.github.io/webResume/' data-project = 'Personal Resume Website'>Website</a></span>
-            <span class="project-stack">HTML &bull; CSS &bull; JavaScript &bull; GTM</span>
+            <span class="project-stack">HTML &bull; CSS &bull; JavaScript &bull; GTM &bull; Segment</span>
         </div>
         <ul style="font-size: 0.9rem;">
             <li>Architected a full GA4 analytics and automation stack on a live website using Google Tag Manager — designing a custom DataLayer schema with event parameters for form submissions and file downloads</li>
             <li>Engineered a client-to-storage data pipeline routing contact form PII (name, email, phone) to Google Sheets via Google Apps Script, resolving GA4's inherent limitation of not retaining raw user-identifying data</li>
             <li>Automated lead notification via Zapier — monitoring Google Sheets for new submissions and triggering a formatted email with full contact details for immediate follow-up</li>
+            <li>Instrumented live site with Segment source tracking across four custom events (page, project_link_clicked, resume_pdf_downloaded, contact_form_submit); configured GA4 and webhook destinations, evaluating redundancy against existing GTM implementation</li>
         </ul>
         <br>
         <div class="project-header">
@@ -79,16 +80,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li>Deployed a full-funnel GA4 E-commerce measurement protocol (view_item through purchase) on a custom-built static storefront, utilizing a centralized DataLayer for dynamic event tracking</li>
             <li>Engineered a dynamic DataLayer schema to capture complex item-level data, ensuring 1:1 alignment with GA4 Monetization reports.</li>  
             <li>Produced technical deliverables including a DataLayer schema specification, tag-to-trigger mapping, and audit report validating data integrity across all funnel stages</li>
+        </ul>
         <br>
             <div class="project-header">
             <span class="project-title project-CDPLink">CDP Event Stream Simulator <a href='https://itsstim.github.io/CDPEventStreamSim/' data-project = 'CDP Demo'>Website</a></span>
-            <span class="project-stack">HTML &bull; CSS &bull; JavaScript</span>
+            <span class="project-stack">HTML &bull; CSS &bull; JavaScript &bull; &bull; Node/Express &bull; Segment</span>
         </div>
         <ul style="font-size: 0.9rem;">
             <li>Architected a browser-based event simulator generating structured JSON payloads (view_item, add_to_cart, sign_up, cta_click) aligned Segment/Tealium event schema conventions — each payload includes event name, ISO timestamp, user ID, and typed contextual properties</li>
             <li>Built a real-time event log panel via DOM manipulation rendering live payload output, enabling schema validation and event inspection</li>  
             <li>Configured a Node/Express ingestion endpoint deployed to Render — accepting event payloads via POST, storing them in server-side memory, and exposing a GET route for payload retrieval; implemented dynamic API base switching between local and production environments</li>
-    </div>
+            <li>Integrated Segment Analytics.js into the simulator; implemented track and identify calls demonstrating CDP identity resolution — associating anonymous sessions with a userId on sign-up — and validated payloads through Segment's event debugger</li>
+        </ul>
+        </div>
     </div>
 
     <h2>Work Experience</h2>
